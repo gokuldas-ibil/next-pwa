@@ -15,9 +15,9 @@ yarn degit git@gitlab.com:serwist/next-pwa/tree/master/examples/reproduction-tem
 ```
 
 ```bash
-pnpx degit git@gitlab.com:serwist/DuCanhGH/next-pwa/tree/master/examples/reproduction-template reproduction
+pnpx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/reproduction-template reproduction
 ```
 
 ```bash
-bunx degit git@gitlab.com:serwist/DuCanhGH/next-pwa/tree/master/examples/reproduction-template reproduction
+bunx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/reproduction-template reproduction
 ```
