@@ -58,7 +58,7 @@ const Page = async () => {
         >
           Get started
         </Link>
-        <InlineCode>npx create-next-app@latest -e https://github.com/DuCanhGH/next-pwa/tree/master/examples/basic</InlineCode>
+        <InlineCode>npx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/basic</InlineCode>
       </div>
       <div className="w-full p-4 md:p-24">
         <div className="grid w-full text-left lg:mb-0 lg:grid-cols-4 lg:gap-2">

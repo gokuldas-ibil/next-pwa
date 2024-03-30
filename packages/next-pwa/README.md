@@ -19,9 +19,7 @@ Visit https://ducanh-next-pwa.vercel.app/docs/next-pwa to see the documentation.
 
 ## Community
 
-You can ask questions, suggest features, and share your projects on [Github Discussions](https://github.com/DuCanhGH/next-pwa/discussions).
-
-Please follow our [Code of Conduct](/CODE_OF_CONDUCT.md) when you communicate with other people.
+You can ask questions and suggest features. Please follow our [Code of Conduct](/CODE_OF_CONDUCT.md) when you communicate with other people.
 
 ## Contributing
 

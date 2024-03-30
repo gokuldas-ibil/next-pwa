@@ -4,7 +4,7 @@ This example demonstrates how to add some custom worker code to the generated se
 
 ## Usage
 
-[![Open in Gitpod and run](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://github.com/DuCanhGH/next-pwa/)
+[![Open in Gitpod and run](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://gitlab.com/serwist/next-pwa/)
 
 ```bash
 cd examples/custom-worker
@@ -14,18 +14,22 @@ pnpm start
 
 or
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+Execute [`degit`](https://github.com/Rich-Harris/degit) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), [pnpm](https://pnpm.io), or [bun](https://bun.sh) to bootstrap the example:
 
 ```bash
-npx create-next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/custom-worker custom-worker-app
+npx degit git@gitlab.com:serwist/tree/master/examples/custom-worker custom-worker-app
 ```
 
 ```bash
-yarn create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/custom-worker custom-worker-app
+yarn degit git@gitlab.com:serwist/tree/master/examples/custom-worker custom-worker-app
 ```
 
 ```bash
-pnpm create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/custom-worker custom-worker-app
+pnpx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/custom-worker custom-worker-app
+```
+
+```bash
+bunx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/custom-worker custom-worker-app
 ```
 
 ## Recommended `.gitignore`

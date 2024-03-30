@@ -3,7 +3,7 @@
   "version": "10.2.5",
   "type": "module",
   "description": "PWA for Next.js, powered by Workbox.",
-  "repository": "https://github.com/DuCanhGH/next-pwa",
+  "repository": "https://gitlab.com/serwist/next-pwa",
   "author": "ShadowWalker <w@weiw.io>, DuCanhGH",
   "license": "MIT",
   "private": false,
