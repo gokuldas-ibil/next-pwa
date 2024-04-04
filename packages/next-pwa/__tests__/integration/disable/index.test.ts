@@ -1,6 +1,6 @@
 import { createDescribe } from "../../test-utils/index.ts";
 
-createDescribe("integration disable", { sourceDir: __dirname, skipInstall: false }, ({ next, testMode }) => {
+createDescribe("integration disable", { sourceDir: __dirname }, ({ next, testMode }) => {
   it("should render, have notification, and show no error", async () => {
     const $ = await next.render("/");
     expect($("#welcome-text").text()).toBe("This is a Next.js PWA!");

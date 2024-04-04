@@ -5,7 +5,7 @@ import WorkboxPlugin from "workbox-webpack-plugin";
 
 import { logger } from "#utils/index.js";
 
-import { NextPwaContext } from "./context.js";
+import type { NextPwaContext } from "./context.js";
 import { resolveRuntimeCaching } from "./resolve-runtime-caching.js";
 import { isInjectManifestConfig, overrideAfterCalledMethod } from "./utils.js";
 import { buildWorkers } from "./webpack/builders/build-workers.js";

@@ -4,11 +4,11 @@ import { fileURLToPath } from "node:url";
 import fg from "fast-glob";
 import type { NextConfig, NextConfigComplete, WebpackConfigContext } from "next/dist/server/config-shared.js";
 import type { TsConfigJson } from "type-fest";
-import type { Asset, Compilation, Configuration as WebpackConfig, default as Webpack } from "webpack";
+import type { Asset, Compilation, default as Webpack, Configuration as WebpackConfig } from "webpack";
 
 import { loadTSConfig, logger, relativeToOutputPath } from "#utils/index.js";
 
-import { RequireFields, WorkboxOptions } from "./private-types.js";
+import type { RequireFields, WorkboxOptions } from "./private-types.js";
 import type { PluginOptions } from "./types.js";
 import { getFileHash } from "./utils.js";
 import { getDefaultDocumentPage } from "./webpack/builders/get-default-document-page.js";

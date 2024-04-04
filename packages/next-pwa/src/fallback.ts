@@ -23,4 +23,4 @@ self.fallback = async (request) => {
 };
 
 // Mark file as module.
-export {};
+export type {};

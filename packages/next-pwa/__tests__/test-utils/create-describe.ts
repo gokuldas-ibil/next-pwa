@@ -1,4 +1,4 @@
-import type { NextInstance, NextInstanceOpts } from "./next-instance-base.ts";
+import type { NextInstance } from "./next-instance-base.ts";
 import { NextInstanceDev } from "./next-instance-dev.ts";
 import { NextInstanceStart } from "./next-instance-start.ts";
 
@@ -6,7 +6,7 @@ const validTestModes = ["dev", "start"] as const;
 
 type NextTestMode = (typeof validTestModes)[number];
 
-interface NextTestOpts extends NextInstanceOpts {
+interface NextTestOpts {
   sourceDir: string;
 }
 
@@ -25,10 +25,10 @@ const createNext = async (opts: NextTestOpts) => {
   try {
     switch (testMode) {
       case "dev":
-        nextInstance = new NextInstanceDev(opts);
+        nextInstance = new NextInstanceDev();
         break;
       case "start":
-        nextInstance = new NextInstanceStart(opts);
+        nextInstance = new NextInstanceStart();
         break;
     }
     await nextInstance.setup(opts.sourceDir);

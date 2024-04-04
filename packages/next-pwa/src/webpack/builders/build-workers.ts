@@ -1,6 +1,6 @@
 import type { Configuration } from "webpack";
 
-import { NextPwaContext } from "../../context.js";
+import type { NextPwaContext } from "../../context.js";
 import { buildCustomWorker } from "./build-custom-worker.js";
 import { buildFallbackWorker } from "./build-fallback-worker.js";
 

@@ -1,4 +1,6 @@
-const withPWA = require("@ducanh2912/next-pwa").default({
+import withPWAInit from "@ducanh2912/next-pwa";
+
+const withPWA = withPWAInit({
   dest: "public",
   cacheOnFrontEndNav: true,
   aggressiveFrontEndNavCaching: true,
@@ -9,4 +11,4 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-module.exports = withPWA(nextConfig);
+export default withPWA(nextConfig);

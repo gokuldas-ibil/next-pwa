@@ -1,4 +1,4 @@
-import { type Icon as TablerIcon, IconCheck as SuccessIcon, IconExclamationMark as WarningIcon, IconX as ErrorIcon } from "@tabler/icons-react";
+import { IconX as ErrorIcon, IconCheck as SuccessIcon, type Icon as TablerIcon, IconExclamationMark as WarningIcon } from "@tabler/icons-react";
 import type { DetailedHTMLProps, HTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
 

@@ -1,6 +1,6 @@
 import { createDescribe } from "../../test-utils/index.ts";
 
-createDescribe("integration basePath", { sourceDir: __dirname, skipInstall: false }, ({ next, testMode }) => {
+createDescribe("integration basePath", { sourceDir: __dirname }, ({ next, testMode }) => {
   it("should render", async () => {
     const $ = await next.render("/next-pwa");
     expect($("#welcome-text").text()).toBe("This is a Next.js PWA!");

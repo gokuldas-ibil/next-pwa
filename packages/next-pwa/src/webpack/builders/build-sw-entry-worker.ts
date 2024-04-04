@@ -1,7 +1,7 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { NextPwaContext } from "../../context.js";
+import type { NextPwaContext } from "../../context.js";
 import { getContentHash } from "../../utils.js";
 import { ChildCompilationPlugin } from "../plugins/child-compilation-plugins.js";
 

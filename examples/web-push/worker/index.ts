@@ -28,4 +28,4 @@ self.addEventListener("notificationclick", (event) => {
   );
 });
 
-export {};
+export type {};

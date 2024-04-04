@@ -1,6 +1,6 @@
 import { createDescribe } from "../../test-utils/index.ts";
 
-createDescribe("integration mjs", { sourceDir: __dirname, skipInstall: false }, ({ next }) => {
+createDescribe("integration mjs", { sourceDir: __dirname }, ({ next }) => {
   it("should render", async () => {
     const $ = await next.render("/");
     expect($("#welcome-text").text()).toBe("This is a Next.js PWA!");
