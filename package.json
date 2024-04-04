@@ -4,7 +4,13 @@
   "license": "MIT",
   "private": true,
   "packageManager": "pnpm@8.15.4",
-  "workspaces": ["docs", "packages/**", "examples/**", "!**/.next", "next-pwa-e2e-test"],
+  "workspaces": [
+    "docs",
+    "packages/**",
+    "examples/**",
+    "!**/.next",
+    "next-pwa-e2e-test"
+  ],
   "scripts": {
     "build": "cross-env FORCE_COLOR=1 turbo run build --filter=./packages/*",
     "code-check": "biome check --max-diagnostics=150 --log-kind=compact .",
@@ -25,7 +31,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.6.4",
-    "@changesets/changelog-github": "0.5.0",
+    "@changesets/changelog-git": "0.2.0",
     "@changesets/cli": "2.27.1",
     "@ducanh2912/next-pwa": "workspace:*",
     "@serwist/release": "workspace:*",
