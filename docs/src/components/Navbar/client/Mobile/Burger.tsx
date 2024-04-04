@@ -5,7 +5,6 @@ import type { FC } from "react";
 import { clsx } from "@/utils/clsx.js";
 
 import { useNavStore } from "../../NavStore.js";
-import { NavToggleSchemeButton } from "../Shared/ToggleColorScheme.js";
 
 export const NavMobileBurger: FC = () => {
   const { showMobileLinks, setShowMobileLinks } = useNavStore((state) => ({
@@ -30,7 +29,6 @@ export const NavMobileBurger: FC = () => {
       >
         <IconMenu2 aria-hidden />
       </button>
-      <NavToggleSchemeButton className="flex" />
     </>
   );
 };

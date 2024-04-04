@@ -2,7 +2,7 @@ import { allDocs } from "contentlayer/generated";
 import { getMDXComponent } from "next-contentlayer/hooks";
 import { notFound } from "next/navigation";
 
-import { GITHUB_REPO_URL } from "@/shared/constants.js";
+import { GITLAB_REPO_URL } from "@/shared/constants.js";
 import { mdxComponents } from "@/shared/mdxComponents.js";
 import type { GenerateMetadata, PageComponent } from "@/shared/types.js";
 import { clsx } from "@/utils/clsx.js";
@@ -40,11 +40,11 @@ const PostLayout: PageComponent = async ({ params }) => {
             <TableOfContents components={mdxComponents} />
           </div>
           <div className={clsx("sticky bottom-0 mt-8 flex flex-col items-start gap-2 border-t pb-8 pt-8", "dark:border-neutral-800")}>
-            <a href={`${GITHUB_REPO_URL}/issues/new/choose`} target="_blank" rel="noreferrer" className={navFooterTextClassName}>
+            <a href={`${GITLAB_REPO_URL}/issues/new/choose`} target="_blank" rel="noreferrer" className={navFooterTextClassName}>
               Question? Give us feedback →<span className="sr-only"> (opens in a new tab)</span>
             </a>
             <a
-              href={`${GITHUB_REPO_URL}/tree/master/docs/content/${post._raw.sourceFilePath}`}
+              href={`${GITLAB_REPO_URL}/tree/master/docs/content/${post._raw.sourceFilePath}`}
               target="_blank"
               rel="noreferrer"
               className={navFooterTextClassName}

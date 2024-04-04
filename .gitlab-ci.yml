@@ -24,8 +24,8 @@ build-and-test-job:
   script:
     - pnpm build
     - pnpm typecheck
-    - NEXT_TEST_MODE=dev pnpm test -- -- --ci --runInBand
-    - NEXT_TEST_MODE=start pnpm test -- -- --ci --runInBand
+    - NEXT_TEST_MODE=dev pnpm test -- -- --ci
+    - NEXT_TEST_MODE=start pnpm test -- -- --ci
 
 publish-job:
   stage: publish

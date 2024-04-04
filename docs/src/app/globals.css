@@ -6,22 +6,31 @@
   :root {
     --navbar-height: 4rem;
   }
+  html,
+  body {
+    @apply m-0 flex h-full w-full p-0;
+  }
+  body {
+    @apply box-border bg-gray-100 transition-colors duration-100 dark:bg-neutral-900;
+  }
+
+  #__next,
+  #root-container {
+    @apply m-0 flex h-fit min-h-screen w-full flex-col p-0;
+  }
+  #main-content {
+    @apply flex flex-grow;
+  }
 }
 
-html,
-body {
-  @apply m-0 flex h-full w-full p-0;
-}
-body {
-  @apply box-border bg-gray-100 transition-colors duration-100 dark:bg-neutral-900;
-}
-
-#__next,
-#root-container {
-  @apply m-0 flex h-fit min-h-screen w-full flex-col p-0;
-}
-#main-content {
-  @apply flex flex-grow;
+@layer utilities {
+  .nav-button {
+    @apply flex cursor-pointer items-center justify-center rounded-full bg-transparent p-3 duration-100 hover:bg-neutral-300 dark:hover:bg-neutral-800 text-black dark:text-white;
+  }
+  html[data-theme="light"] .visible-dark,
+  html[data-theme="dark"] .visible-light {
+    @apply !invisible !hidden;
+  }
 }
 
 @media (prefers-reduced-motion) {
