@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": "https://gitlab.com/next-pwa/serwist",
   "bugs": "https://gitlab.com/serwist/next-pwa/issues",
-  "homepage": "https://ducanh2912-next-pwa.vercel.app",
+  "homepage": "https://ducanh-next-pwa.vercel.app",
   "bin": {
     "serwist-release": "cli.js"
   },

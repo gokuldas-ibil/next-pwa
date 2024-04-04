@@ -9,7 +9,7 @@
   "license": "MIT",
   "repository": "https://gitlab.com/serwist/next-pwa",
   "bugs": "https://gitlab.com/serwist/next-pwa/issues",
-  "homepage": "https://ducanh2912-next-pwa.vercel.app",
+  "homepage": "https://ducanh-next-pwa.vercel.app",
   "exports": {
     "./rollup": {
       "types": "./src/rollup.d.ts",
