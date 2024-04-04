@@ -1,5 +1,13 @@
 # @ducanh2912/next-pwa
 
+## 10.2.6
+
+### Patch Changes
+
+- 043aa36: chore(misc): migrated to GitLab
+
+  - This also updated the dependencies and revamped how we test things.
+
 ## 10.2.5
 
 ### Patch Changes
