@@ -1,6 +1,6 @@
 import { createDescribe } from "../../test-utils/index.ts";
 
-createDescribe("e2e app-dir", { sourceDir: __dirname }, ({ next }) => {
+createDescribe("e2e pages-dir", { sourceDir: __dirname }, ({ next }) => {
   it("should render", async () => {
     const $ = await next.render("/");
     expect($("#welcome-text").text()).toBe("This is a Next.js PWA!");

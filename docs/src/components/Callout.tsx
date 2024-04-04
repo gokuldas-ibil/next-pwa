@@ -1,4 +1,4 @@
-import { IconX as ErrorIcon, IconCheck as SuccessIcon, type Icon as TablerIcon, IconExclamationMark as WarningIcon } from "@tabler/icons-react";
+import { IconX as ErrorIcon, IconCheck as SuccessIcon, IconExclamationMark as WarningIcon } from "@tabler/icons-react";
 import type { DetailedHTMLProps, HTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -17,12 +17,12 @@ export interface CalloutProps extends Omit<DetailedHTMLProps<HTMLAttributes<HTML
   variant?: CalloutVariants;
 }
 
-const variantToIcon: Record<CalloutVariants, TablerIcon> = {
+const variantToIcon = {
   error: ErrorIcon,
   warning: WarningIcon,
   success: SuccessIcon,
   info: WarningIcon,
-};
+} satisfies Record<CalloutVariants, unknown>;
 
 /**
  * A simple Callout component.

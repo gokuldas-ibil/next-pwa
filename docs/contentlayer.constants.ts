@@ -1,7 +1,5 @@
-import type { PluggableList } from "unified";
-
 import rehypeSlug from "./md-plugins/headings/sluggify.js";
 
-export const rehypePlugins: PluggableList = [rehypeSlug];
+export const rehypePlugins: any[] = [rehypeSlug];
 
-export const remarkPlugins: PluggableList = [];
+export const remarkPlugins: any[] = [];

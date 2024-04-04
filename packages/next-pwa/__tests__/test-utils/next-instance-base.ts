@@ -1,11 +1,9 @@
 import type { ChildProcessWithoutNullStreams } from "node:child_process";
-import fs from "node:fs/promises";
 import { lstatSync } from "node:fs";
-import { glob } from "glob";
-
+import fs from "node:fs/promises";
 import * as cheerio from "cheerio";
+import { glob } from "glob";
 import type { PackageJson } from "type-fest";
-
 import treeKill from "./tree-kill.ts";
 
 export abstract class NextInstance {
