@@ -38,3 +38,6 @@ out/
 **/public/worker**
 **/public/fallback**
 **/public/precache**
+
+# ci pnpm
+.pnpm-store
