@@ -7,25 +7,32 @@ type: Docs
 
 Welcome to the `next-pwa` documentation!
 
-## What is `next-pwa`?
+## What is `@ducanh2912/next-pwa`?
 
-`next-pwa` is a plugin for Next.js that allows you to create a progressive web app with it.
+`@ducanh2912/next-pwa` is a package that allows you to create a progressive web app with Next.js.
 
-With it, building a PWA is simply painless, just drop `withPWA` into your `next.config.js` and you are already good to go!
+This is the predecessor of `@serwist/next`. If you are just getting started, we recommend using [Serwist](https://serwist.pages.dev) instead.
 
-It is also really configurable as it uses Workbox under the hood to build the service worker.
+## How to install `@ducanh2912/next-pwa`?
 
-## How to install `next-pwa`?
-
-See [Getting started](/docs/next-pwa/getting-started). It should have abundant information on how to set the plugin up, including additional information for
-older versions of Next.js and tips!
+See [Getting started](/docs/next-pwa/getting-started).
 
 ## How to configure it?
 
-See [Configuring](/docs/next-pwa/configuring). All available options are listed there!
+See [Configuring](/docs/next-pwa/configuring).
 
 ## Does it support offline mode?
 
-Yes! Offline mode is supported out of the box. Assets such as `.js` files, `.css` files, images are automatically cached as they are requested (some are even
-precached!). Pages are also cached as you visits them. If you are offline before they are cached, you won't be disappointed still [should you have offline
-fallbacks enabled](/docs/next-pwa/offline-fallbacks).
+Out of the box, JavaScript, CSS, and images assets are precached, and pages are cached as you visits them. You can also enable [offline
+fallbacks](/docs/next-pwa/offline-fallbacks) to handle uncached assets and pages.
+
+For more information, see [Offline support](/docs/next-pwa/offline-fallbacks).
+
+## Alternatives
+
+There are also some alternatives to `@ducanh2912/next-pwa`:
+
+- [`@serwist/next`](https://serwist.pages.dev/docs/next)
+- [`@serwist/webpack-plugin`](https://serwist.pages.dev/docs/webpack-plugin)
+- [`workbox-webpack-plugin`](https://developer.chrome.com/docs/workbox/modules/workbox-webpack-plugin)
+- [`next-pwa`](https://github.com/shadowwalker/next-pwa)

@@ -5,16 +5,16 @@ type: Docs
 
 # Custom worker
 
-`next-pwa` will automatically detect `worker/index.{js,ts}`, and bundle the file into `dest` as `worker-*.js` using `webpack`.
-It's also automatically injected into the generated `sw.js`. In this way, you get the benefit of code splitting automatically.
-You can share logic between your web app and this worker (path aliases do work). You can even import npm packages there!
+`next-pwa` allows you to inject some custom code into the generated service worker. By default, this code should be located at `worker/index.{js,ts}`.
+The plugin will check if the file exists and bundle the file to `dest/worker-*.js` if it does.
 
-This is where you can write your custom worker logic.
+<Callout variant="warning">
+  Do not use this feature to write critical worker code that your application depends on to function. Again, the service worker should function as an
+  enhancement, not something critical to your application.
+</Callout>
 
-For example, to disable Workbox's logging, you can simply add `self.__WB_DISABLE_DEV_LOGS = true` to it.
-
-You can change the directory in which `next-pwa` looks for a custom worker implementation, change its output directory, or
-change its file structure:
+You can change the directory in which `next-pwa` looks for a custom worker implementation and change the directory in which `next-pwa` outputs the bundled
+worker:
 
 <Tabs>
 
@@ -50,7 +50,7 @@ export default withPWA({
 
 </Tabs>
 
-In this example, `next-pwa` will look for `service-worker/index.{js,ts}`, bundles it if it is available, then emits the result
+In this example, `next-pwa` will look for `service-worker/index.{js,ts}`, bundle it if it is available, and then emit the result
 to `somewhere-else/not/a-worker-*.js`.
 
 <Callout variant="warning">

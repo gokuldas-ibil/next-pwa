@@ -90,10 +90,7 @@ export default withPWA({
 
 ## Other options
 
-`next-pwa` uses `workbox-webpack-plugin` under the hood, other options can be found in the documentation for [GenerateSW](https://developer.chrome.com/docs/workbox/modules/workbox-webpack-plugin/#generatesw-plugin) and
-[InjectManifest](https://developer.chrome.com/docs/workbox/modules/workbox-webpack-plugin/#injectmanifest-plugin).
-
-To pass these options to `workbox-webpack-plugin`, change your `next.config.js` like so:
+`next-pwa` uses `workbox-webpack-plugin` under the hood. As such, its options are also available:
 
 <Tabs>
 
@@ -136,9 +133,8 @@ export default withPWA({
 
 ## Runtime caching
 
-`next-pwa` has a default list of caching strategies, see: [cache.ts](https://github.com/DuCanhGH/next-pwa/tree/master/packages/next-pwa/src/cache.ts)
-
-If you want to have your own runtime caching rules, change your `next.config.js` like so:
+`next-pwa` provides [a list of caching strategies out of the box](https://github.com/DuCanhGH/next-pwa/tree/master/packages/next-pwa/src/cache.ts).
+You can also write your own list like so:
 
 <Tabs>
 
@@ -181,6 +177,6 @@ export default withPWA({
 </Tabs>
 
 <Callout>
-  Also check out [the documentation on how to write a runtime caching
-  array](https://developer.chrome.com/docs/workbox/reference/workbox-build/#type-RuntimeCaching)!
+  Also check out [Workbox's documentation on
+  `runtimeCaching`](https://developer.chrome.com/docs/workbox/reference/workbox-build/#type-RuntimeCaching).
 </Callout>

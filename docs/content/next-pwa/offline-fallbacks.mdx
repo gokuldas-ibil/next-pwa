@@ -84,7 +84,3 @@ export default withPWA({
 
 `next-pwa` helps you precache those resources on first load, then inject a fallback handler to `handlerDidError` plugin to all
 `runtimeCaching` entries, so that precached resources are served when fetching fails.
-
-You can also setup `precacheFallback.fallbackURL` in your [runtimeCaching array](https://developer.chrome.com/docs/workbox/reference/workbox-build/#type-RuntimeCaching)
-to implement a similar functionality. The difference is that the above method is based on the resource type, whereas this method is based on matched URL pattern. If this config
-is set in any `runtimeCaching` entry, the aforementioned resource-based method will be disabled for that particular entry to avoid conflicts.

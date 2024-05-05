@@ -2,17 +2,17 @@
 import { Heading, type HeadingProps } from "@/components/Heading";
 import { clsx } from "@/utils/clsx";
 import Link from "next/link";
-import { type ReactNode, createContext, useEffect, useState, type DetailedHTMLProps, type AnchorHTMLAttributes, use, useRef } from "react";
+import { type ReactNode, createContext, useEffect, useState, type DetailedHTMLProps, type AnchorHTMLAttributes, use, useRef, act } from "react";
 
 interface TocContextProperties {
-  activeId: string | null;
+  activeId: Set<string>;
   observer: IntersectionObserver | null;
 }
 
-export const TocContext = createContext<TocContextProperties>({ activeId: null, observer: null });
+export const TocContext = createContext<TocContextProperties>({ activeId: null!, observer: null });
 
 export const TocProvider = ({ children }: { children: ReactNode }) => {
-  const [activeId, setActiveId] = useState<TocContextProperties["activeId"]>(null);
+  const [activeId, setActiveId] = useState<TocContextProperties["activeId"]>(new Set<string>());
   const [observer, setObserver] = useState<TocContextProperties["observer"]>(null);
 
   useEffect(() => {
@@ -20,17 +20,7 @@ export const TocProvider = ({ children }: { children: ReactNode }) => {
       setObserver(
         new IntersectionObserver(
           (entries) => {
-            let found = false;
-            for (const entry of entries) {
-              if (entry.isIntersecting) {
-                setActiveId(entry.target.id);
-                found = true;
-                break;
-              }
-            }
-            if (!found) {
-              setActiveId(null);
-            }
+            setActiveId(() => new Set(entries.filter((e) => e.isIntersecting).map((e) => `#${e.target.id}`)));
           },
           {
             rootMargin: "0% 0% 0% 0%",
@@ -72,7 +62,7 @@ export const TocLink = ({ href, className, ...rest }: TocLinkProps) => {
   if (href?.startsWith("#")) {
     const { activeId } = use(TocContext);
 
-    return <a href={href} className={clsx("text-toc", href.slice(1) === activeId && "active", className)} {...rest} />;
+    return <a href={href} className={clsx("text-toc", activeId.has(href) && "active", className)} {...rest} />;
   }
 
   // Same origin
