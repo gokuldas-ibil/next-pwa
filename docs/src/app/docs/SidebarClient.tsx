@@ -2,7 +2,7 @@
 import { IconChevronRight } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { type ReactNode, useEffect, useRef, useState, type DetailedHTMLProps, type AnchorHTMLAttributes } from "react";
+import { type AnchorHTMLAttributes, type DetailedHTMLProps, type ReactNode, useEffect, useRef, useState } from "react";
 
 import { clsx } from "@/utils/clsx.js";
 

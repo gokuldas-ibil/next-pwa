@@ -26,6 +26,19 @@ html[data-theme="dark"] .shiki span:not([class^="twoslash-"]) {
   body {
     @apply box-border bg-neutral-50 transition-colors duration-100 dark:bg-neutral-950;
   }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  blockquote {
+    @apply text-balance break-words;
+  }
+  p,
+  video {
+    @apply my-3;
+  }
 
   details > summary {
     @apply cursor-pointer select-none list-none;
@@ -65,6 +78,27 @@ html[data-theme="dark"] .shiki span:not([class^="twoslash-"]) {
   }
   .text-toc.active {
     @apply xl:text-primary-light xl:dark:text-primary-dark;
+  }
+  .text-comment {
+    @apply text-neutral-600 dark:text-neutral-400;
+  }
+  .heading.h1 {
+    @apply text-4xl font-semibold leading-10 tracking-tight mb-6;
+  }
+  .heading.h2 {
+    @apply text-3xl font-semibold leading-10 tracking-tight mb-3 mt-6;
+  }
+  .heading.h3 {
+    @apply text-2xl font-semibold leading-7 tracking-tight my-3;
+  }
+  .heading.h4 {
+    @apply text-xl font-medium leading-5 tracking-tight my-3;
+  }
+  .heading.default {
+    @apply text-black dark:text-white;
+  }
+  .heading.error {
+    @apply text-red-500 dark:text-red-400;
   }
 }
 

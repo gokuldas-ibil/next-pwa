@@ -4,13 +4,7 @@
   "license": "MIT",
   "private": true,
   "packageManager": "pnpm@9.0.6",
-  "workspaces": [
-    "docs",
-    "packages/**",
-    "examples/**",
-    "!**/.next",
-    "next-pwa-e2e-test"
-  ],
+  "workspaces": ["docs", "packages/**", "examples/**", "!**/.next", "next-pwa-e2e-test"],
   "scripts": {
     "build": "FORCE_COLOR=1 turbo run build --filter='./packages/*'",
     "code-check": "biome check --max-diagnostics=150 --log-kind=compact .",

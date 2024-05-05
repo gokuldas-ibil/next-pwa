@@ -5,7 +5,7 @@ import { ReloadButton } from "./ReloadButton.js";
 const Page = () => {
   return (
     <div className="flex w-full items-center justify-center self-stretch">
-      <Heading type="title-large">offline. </Heading>
+      <Heading type="h2">offline.</Heading>
       <ReloadButton />
     </div>
   );

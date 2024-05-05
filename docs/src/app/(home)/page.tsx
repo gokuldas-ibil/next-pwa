@@ -14,7 +14,6 @@ import { clsx } from "@/utils/clsx.js";
 
 import { rehypePlugins, remarkPlugins } from "../../../contentlayer.constants.js";
 import { CodeShowcase } from "./components.js";
-import { FEATURES_LIST } from "./constants.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -33,23 +32,28 @@ const Page = async () => {
   const RenderedCodeShowcase = getMDXComponent(compiledText.code);
 
   return (
-    <div className={clsx("w-full self-stretch", "bg-white text-black dark:bg-black dark:text-white", inter.className)}>
-      <div className="flex w-full flex-col items-center justify-center gap-5 px-5 py-40">
+    <div
+      className={clsx(
+        "w-full self-stretch flex flex-col bg-white text-black dark:bg-black dark:text-white [&>div]:max-w-screen-lg [&>div]:md:self-center",
+        inter.className,
+      )}
+    >
+      <div className="flex w-full flex-col gap-5 px-8 md:px-24 py-40">
         <h1
           className={clsx(
-            "my-2 text-balance text-center text-5xl font-extrabold tracking-tight",
+            "my-2 text-5xl font-extrabold tracking-tight",
             "bg-gradient-to-t from-neutral-500 to-black bg-clip-text text-transparent dark:from-neutral-400 dark:to-white",
           )}
         >
-          Make performant web apps with Next.js & PWA.
+          Create progressive web apps with Next.js.
         </h1>
-        <h2 className="my-2 text-balance text-center text-2xl font-medium tracking-tight opacity-80">
+        <h2 className="my-2 text-2xl font-medium tracking-tight opacity-80">
           <InlineCode>next-pwa</InlineCode> enables you to create PWAs with Next.js. No configuration needed, yet so configurable.
         </h2>
         <Link
           href="/docs/next-pwa/getting-started"
           className={clsx(
-            "rounded-md border px-6 py-3 font-bold transition-colors duration-100",
+            "rounded-md border px-6 py-3 font-bold transition-colors duration-100 w-fit",
             "bg-black text-white dark:bg-white dark:text-black",
             "hover:border-black hover:bg-white hover:text-black",
             "hover:dark:border-white hover:dark:bg-black hover:dark:text-white",
@@ -58,27 +62,8 @@ const Page = async () => {
         >
           Get started
         </Link>
-        <InlineCode>npx create-next-app -e https://github.com/DuCanhGH/next-pwa/tree/master/examples/basic</InlineCode>
       </div>
-      <div className="w-full p-4 md:p-24">
-        <div className="grid w-full text-left lg:mb-0 lg:grid-cols-4 lg:gap-2">
-          {FEATURES_LIST.map((feature, idx) => (
-            <div
-              key={`homepage-feature-lists-${idx}`}
-              className={clsx(
-                "rounded-lg border border-transparent px-5 py-4 transition-colors",
-                "hover:border-neutral-300 hover:bg-neutral-100 hover:dark:border-neutral-800 hover:dark:bg-neutral-800/30",
-              )}
-            >
-              <h2 className="mb-3 text-2xl font-semibold">
-                {feature.icon} {feature.label}
-              </h2>
-              <p className="m-0 max-w-[30ch] text-sm opacity-80">{feature.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="w-full p-4 md:p-24">
+      <div className="w-full p-8 md:p-24">
         <RenderedCodeShowcase
           components={{
             ...mdxComponents,

@@ -20,7 +20,7 @@ export const Logo = ({ containerClassName, nextLogoHeight = 20, nextLogoClassNam
       gap: "0.5rem",
     }}
     className={containerClassName}
-    aria-label="Next PWA"
+    aria-label="next-pwa"
   >
     <NextSvg height={nextLogoHeight} className={nextLogoClassName} style={nextLogoStyle} aria-hidden />
     <p
@@ -29,9 +29,7 @@ export const Logo = ({ containerClassName, nextLogoHeight = 20, nextLogoClassNam
         textTransform: "uppercase",
         letterSpacing: "0.1em",
         padding: 0,
-        ...(!noMoveTextUp && {
-          marginTop: "-1px",
-        }),
+        margin: `${!noMoveTextUp ? "-1px" : "0px"} 0px 0px 0px`,
         ...textStyle,
       }}
     >

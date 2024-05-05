@@ -2,7 +2,7 @@
 import { Heading, type HeadingProps } from "@/components/Heading";
 import { clsx } from "@/utils/clsx";
 import Link from "next/link";
-import { type ReactNode, createContext, useEffect, useState, type DetailedHTMLProps, type AnchorHTMLAttributes, use, useRef, act } from "react";
+import { type AnchorHTMLAttributes, type DetailedHTMLProps, type ReactNode, act, createContext, use, useEffect, useRef, useState } from "react";
 
 interface TocContextProperties {
   activeId: Set<string>;

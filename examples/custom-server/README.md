@@ -1,6 +1,6 @@
 # next-pwa - custom server
 
-This example demonstrates how to use serve a Next PWA with custom server.
+This example demonstrates how to use serve a Next.js PWA with a custom server.
 
 It uses `fastify` as a custom server to serve `sw.js` and `precache` scripts statically, and it contains a minimal icon set and a `manifest.json` in the `public` directory. The example also features full offline support and boasts full (all 100) scores on Lighthouse 🎉.
 

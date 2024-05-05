@@ -9,11 +9,9 @@ import { AnchorLinkUnderline } from "@/components/Link/AnchorLinkUnderline.js";
 import { LinkUnderline } from "@/components/Link/LinkUnderline.js";
 import { Tabs } from "@/components/Tabs.js";
 import { Text } from "@/components/Text.js";
-import { clsx } from "@/utils/clsx.js";
 import { TocHeading, TocLink } from "./TocContext";
 
 const TEXT_COLOR = "text-black dark:text-white";
-const TEXT_BORDER = "border-b border-neutral-200/70 dark:border-neutral-400/10";
 
 const filterLegacyRef = <T,>(ref: LegacyRef<T> | undefined) => (typeof ref === "string" ? undefined : ref);
 
@@ -44,11 +42,11 @@ export const mdxComponents: MDXComponents = {
 
     return <AnchorLinkUnderline href={href} className={className} target="_blank" rel="noopener noreferrer" ref={filterLegacyRef(ref)} {...rest} />;
   },
-  p: ({ ref, className, ...rest }) => <Text ref={filterLegacyRef(ref)} className={clsx("mt-6", className)} {...rest} />,
-  h1: ({ ref, ...rest }) => <Heading type="display" ref={filterLegacyRef(ref)} {...rest} />,
-  h2: ({ className, ref, ...rest }) => <Heading type="title-large" ref={filterLegacyRef(ref)} className={clsx(TEXT_BORDER, className)} {...rest} />,
-  h3: ({ ref, ...rest }) => <Heading type="title" ref={filterLegacyRef(ref)} {...rest} />,
-  h4: ({ ref, ...rest }) => <Heading type="subtitle" ref={filterLegacyRef(ref)} {...rest} />,
+  p: ({ ref, ...rest }) => <Text ref={filterLegacyRef(ref)} {...rest} />,
+  h1: ({ ref, ...rest }) => <Heading type="h1" ref={filterLegacyRef(ref)} {...rest} />,
+  h2: ({ className, ref, ...rest }) => <Heading type="h2" ref={filterLegacyRef(ref)} {...rest} />,
+  h3: ({ ref, ...rest }) => <Heading type="h3" ref={filterLegacyRef(ref)} {...rest} />,
+  h4: ({ ref, ...rest }) => <Heading type="h4" ref={filterLegacyRef(ref)} {...rest} />,
   code: ({ children, ref, ...rest }) => {
     if (typeof children === "string") {
       return (
@@ -69,10 +67,10 @@ export const mdxComponents: MDXComponents = {
 
 export const tocHeadingMdxComponents: MDXComponents = {
   ...mdxComponents,
-  h1: ({ ref, ...rest }) => <TocHeading type="display" {...rest} />,
-  h2: ({ className, ref, ...rest }) => <TocHeading type="title-large" className={clsx(TEXT_BORDER, className)} {...rest} />,
-  h3: ({ ref, ...rest }) => <TocHeading type="title" {...rest} />,
-  h4: ({ ref, ...rest }) => <TocHeading type="subtitle" {...rest} />,
+  h1: ({ ref, ...rest }) => <TocHeading type="h1" {...rest} />,
+  h2: ({ className, ref, ...rest }) => <TocHeading type="h2" {...rest} />,
+  h3: ({ ref, ...rest }) => <TocHeading type="h3" {...rest} />,
+  h4: ({ ref, ...rest }) => <TocHeading type="h4" {...rest} />,
 };
 
 export const tocMdxComponents: MDXComponents = {

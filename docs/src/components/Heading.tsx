@@ -1,54 +1,19 @@
-import type { DetailedHTMLProps, ElementType, HTMLAttributes } from "react";
+import type { DetailedHTMLProps, HTMLAttributes } from "react";
 import { forwardRef } from "react";
-import { twMerge } from "tailwind-merge";
 
 import { clsx } from "@/utils/clsx.js";
 
-export interface HeadingProps extends DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement> {
+export interface HeadingProps extends Omit<DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>, "className"> {
   variant?: "default" | "error";
-  type?: "subtitle" | "title" | "title-large" | "display";
+  type?: "h4" | "h3" | "h2" | "h1";
   isInSatori?: boolean;
 }
 
-const mapTypeToComponent: Record<
-  NonNullable<HeadingProps["type"]>,
-  {
-    element: ElementType;
-    className?: string;
-  }
-> = {
-  subtitle: {
-    element: "h4",
-    className: "font-semibold tracking-tight my-8 text-xl",
-  },
-  title: {
-    element: "h3",
-    className: "font-semibold tracking-tight my-8 text-2xl",
-  },
-  "title-large": {
-    element: "h2",
-    className: "font-semibold tracking-tight my-10 pb-1 text-3xl",
-  },
-  display: {
-    element: "h1",
-    className: "font-bold tracking-tight my-2 text-4xl",
-  },
-};
-
-export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(({ id, variant = "default", className, type = "title", ...rest }, ref) => {
-  const mappedComponent = mapTypeToComponent[type];
-  const Component = mappedComponent.element;
+export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(({ id, variant = "default", type = "h2", ...rest }, ref) => {
+  const Component = type;
   return (
-    <span className={twMerge("group flex flex-row", mappedComponent.className, className)}>
-      <Component
-        ref={ref}
-        id={id}
-        className={clsx("break-words", {
-          "text-black dark:text-white": variant === "default",
-          "text-red-500 dark:text-red-400": variant === "error",
-        })}
-        {...rest}
-      />
+    <span className={clsx("group heading flex flex-row items-center", variant, type)}>
+      <Component ref={ref} id={id} {...rest} />
       {id && (
         <a
           href={`#${id}`}

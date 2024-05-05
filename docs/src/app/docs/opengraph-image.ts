@@ -1,6 +1,6 @@
 import { generateOGImage } from "@/utils/generateOGImage.js";
 
-export const alt = "Next PWA - Docs";
+export const alt = "next-pwa - Docs";
 export const size = {
   width: 1200,
   height: 600,
