@@ -6,7 +6,7 @@ const tailwindConfig = {
     extend: {
       colors: {
         primary: {
-          light: "#2563eb",
+          light: "#1e40af",
           dark: "#7dd3fc",
         },
         blue: {
@@ -30,6 +30,7 @@ const tailwindConfig = {
         },
         neutral: {
           150: "#EEEEEE",
+          250: "#DDDDDD",
         },
       },
     },
