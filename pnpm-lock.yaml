@@ -68,9 +68,6 @@ importers:
       '@tabler/icons-react':
         specifier: 3.3.0
         version: 3.3.0(react@19.0.0-canary-7a2609eed-20240403)
-      bright:
-        specifier: 0.8.5
-        version: 0.8.5(react@19.0.0-canary-7a2609eed-20240403)
       client-only:
         specifier: 0.0.1
         version: 0.0.1
@@ -105,6 +102,9 @@ importers:
         specifier: 4.5.2
         version: 4.5.2(@types/react@18.3.1)(react@19.0.0-canary-7a2609eed-20240403)
     devDependencies:
+      '@shikijs/rehype':
+        specifier: 1.4.0
+        version: 1.4.0
       '@types/extend':
         specifier: 3.0.4
         version: 3.0.4
@@ -168,6 +168,9 @@ importers:
       rehype-sanitize:
         specifier: 6.0.0
         version: 6.0.0
+      shiki:
+        specifier: 1.4.0
+        version: 1.4.0
       tailwindcss:
         specifier: 3.4.3
         version: 3.4.3(ts-node@10.9.2(@swc/core@1.4.17(@swc/helpers@0.5.11))(@types/node@20.12.8)(typescript@5.5.0-dev.20240504))
@@ -1381,9 +1384,6 @@ packages:
   '@changesets/write@0.3.0':
     resolution: {integrity: sha512-slGLb21fxZVUYbyea+94uFiD6ntQW0M2hIKNznFizDhZPDgn2c/fv1UzzlW43RVzh1BEDuIqW6hzlJ1OflNmcw==}
 
-  '@code-hike/lighter@0.8.1':
-    resolution: {integrity: sha512-St4rPmB7C2EWmAK1sAbvD3lZeM7UDInVDMjQDzEDsu4Q3B3AqF25vXedQK51U0UO0MCOASgBBdTiNwvJAfIqMQ==}
-
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
     engines: {node: '>=0.1.90'}
@@ -2427,6 +2427,15 @@ packages:
       rollup:
         optional: true
 
+  '@shikijs/core@1.4.0':
+    resolution: {integrity: sha512-CxpKLntAi64h3j+TwWqVIQObPTED0FyXLHTTh3MKXtqiQNn2JGcMQQ362LftDbc9kYbDtrksNMNoVmVXzKFYUQ==}
+
+  '@shikijs/rehype@1.4.0':
+    resolution: {integrity: sha512-Ba6QHYx+EIEvmqyNy/B49KAz3rXsTfAqYRY3KTZjPWonytokGOiJ1q/FV9l13D/ad6Qv+eWKhkAz6ITxx6ziFA==}
+
+  '@shikijs/transformers@1.4.0':
+    resolution: {integrity: sha512-kzvlWmWYYSeaLKRce/kgmFFORUtBtFahfXRKndor0b60ocYiXufBQM6d6w1PlMuUkdk55aor9xLvy9wy7hTEJg==}
+
   '@sigstore/protobuf-specs@0.1.0':
     resolution: {integrity: sha512-a31EnjuIDSX8IXBUib3cYLDRlPMU36AWX4xS8ysLaNu4ZzUesDiPt83pgrW2X1YLMe5L2HbDyaKK5BrL4cNKaQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
@@ -3101,11 +3110,6 @@ packages:
 
   breakword@1.0.5:
     resolution: {integrity: sha512-ex5W9DoOQ/LUEU3PMdLs9ua/CYZl1678NUkKOdUSi8Aw5F1idieaiRURCBFJCwVcrD1J8Iy3vfWSloaMwO2qFg==}
-
-  bright@0.8.5:
-    resolution: {integrity: sha512-LOhh3jk8KLFMqhX67TSGP1kCb3qGXbiRLbyBToVOfrrrEa3omXHT44r0/L4/OOlKluaFcO7+11KLOM5xI50XvA==}
-    peerDependencies:
-      react: ^18
 
   browserslist@4.23.0:
     resolution: {integrity: sha512-QW8HiM1shhT2GuzkvklfjcKDiWFXHOeFCIA/huJPwHsslwcydgk7X+z2zXpEijP98UCY7HbubZt5J2Zgvf0CaQ==}
@@ -6438,6 +6442,9 @@ packages:
   shell-quote@1.8.1:
     resolution: {integrity: sha512-6j1W9l1iAs/4xYBI1SYOVZyFcCis9b4KCLQ8fgAGG07QvzaRLVVRQvAy85yNmmZSjYjg4MWh4gNvlPujU/5LpA==}
 
+  shiki@1.4.0:
+    resolution: {integrity: sha512-5WIn0OL8PWm7JhnTwRWXniy6eEDY234mRrERVlFa646V2ErQqwIFd2UML7e0Pq9eqSKLoMa3Ke+xbsF+DAuy+Q==}
+
   side-channel@1.0.4:
     resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}
 
@@ -8533,8 +8540,6 @@ snapshots:
       human-id: 1.0.2
       prettier: 2.8.8
 
-  '@code-hike/lighter@0.8.1': {}
-
   '@colors/colors@1.5.0':
     optional: true
 
@@ -9645,6 +9650,21 @@ snapshots:
     optionalDependencies:
       rollup: 3.28.1
 
+  '@shikijs/core@1.4.0': {}
+
+  '@shikijs/rehype@1.4.0':
+    dependencies:
+      '@shikijs/transformers': 1.4.0
+      '@types/hast': 3.0.4
+      hast-util-to-string: 3.0.0
+      shiki: 1.4.0
+      unified: 11.0.4
+      unist-util-visit: 5.0.0
+
+  '@shikijs/transformers@1.4.0':
+    dependencies:
+      shiki: 1.4.0
+
   '@sigstore/protobuf-specs@0.1.0': {}
 
   '@sinclair/typebox@0.27.8': {}
@@ -10412,12 +10432,6 @@ snapshots:
   breakword@1.0.5:
     dependencies:
       wcwidth: 1.0.1
-
-  bright@0.8.5(react@19.0.0-canary-7a2609eed-20240403):
-    dependencies:
-      '@code-hike/lighter': 0.8.1
-      react: 19.0.0-canary-7a2609eed-20240403
-      server-only: 0.0.1
 
   browserslist@4.23.0:
     dependencies:
@@ -14835,6 +14849,10 @@ snapshots:
   shebang-regex@3.0.0: {}
 
   shell-quote@1.8.1: {}
+
+  shiki@1.4.0:
+    dependencies:
+      '@shikijs/core': 1.4.0
 
   side-channel@1.0.4:
     dependencies:

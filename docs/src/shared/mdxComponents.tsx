@@ -1,15 +1,13 @@
 import type { MDXComponents } from "mdx/types";
-import Link from "next/link";
 import type { LegacyRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 import { Callout } from "@/components/Callout.js";
-import { Code } from "@/components/Code.js";
 import { Heading } from "@/components/Heading.js";
 import { InlineCode } from "@/components/InlineCode.js";
 import { AnchorLinkUnderline } from "@/components/Link/AnchorLinkUnderline.js";
 import { LinkUnderline } from "@/components/Link/LinkUnderline.js";
-import { Tabs } from "@/components/Tabs/index.js";
+import { Tabs } from "@/components/Tabs.js";
 import { Text } from "@/components/Text.js";
 import { clsx } from "@/utils/clsx.js";
 import { TocHeading, TocLink } from "./TocContext";
@@ -51,12 +49,18 @@ export const mdxComponents: MDXComponents = {
   h2: ({ className, ref, ...rest }) => <Heading type="title-large" ref={filterLegacyRef(ref)} className={clsx(TEXT_BORDER, className)} {...rest} />,
   h3: ({ ref, ...rest }) => <Heading type="title" ref={filterLegacyRef(ref)} {...rest} />,
   h4: ({ ref, ...rest }) => <Heading type="subtitle" ref={filterLegacyRef(ref)} {...rest} />,
-  code: ({ ref, ...rest }) => <InlineCode ref={ref} {...rest} />,
-  pre: ({ ref, children, ...rest }) => {
+  code: ({ children, ref, ...rest }) => {
+    if (typeof children === "string") {
+      return (
+        <InlineCode ref={ref} {...rest}>
+          {children}
+        </InlineCode>
+      );
+    }
     return (
-      <Code {...rest}>
-        <span>{children}</span>
-      </Code>
+      <code ref={ref} {...rest}>
+        {children}
+      </code>
     );
   },
   ul: ({ className, ...rest }) => <ul className={twMerge("list-disc first:mt-0 ltr:ml-6 rtl:mr-6", className)} {...rest} />,

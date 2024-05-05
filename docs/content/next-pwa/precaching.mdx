@@ -29,10 +29,9 @@ This is to make sure we don't precache, e.g., the precache manifest file, or oth
 By default, all JS files are precached. However, this behaviour is not desired for larger apps. If your app fits this criterion, it is recommended that you
 manually filter out JS files that are not necessary.
 
-<Tabs>
+<Tabs titles={["next.config.js", "next.config.mjs"]}>
 
 ```js
-// title next.config.js
 const withPWA = require("@ducanh2912/next-pwa").default({
   // Your other options,
   workboxOptions: { exclude: ["/some-js-files.js"] },
@@ -44,7 +43,6 @@ module.exports = withPWA({
 ```
 
 ```js
-// title next.config.mjs
 import withPWAInit from "@ducanh2912/next-pwa";
 
 const withPWA = withPWAInit({

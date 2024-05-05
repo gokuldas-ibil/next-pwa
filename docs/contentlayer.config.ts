@@ -1,5 +1,4 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
-
 import { rehypePlugins, remarkPlugins } from "./contentlayer.constants.js";
 import { generateToc } from "./contentlayer.utils.js";
 

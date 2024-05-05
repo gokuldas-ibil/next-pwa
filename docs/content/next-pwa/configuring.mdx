@@ -9,10 +9,9 @@ type: Docs
 
 There are options you can use to customize the behavior of this plugin:
 
-<Tabs>
+<Tabs titles={["next.config.js", "next.config.mjs"]}>
 
 ```js
-// title next.config.js
 const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
   // disable: process.env.NODE_ENV === "development",
@@ -29,7 +28,6 @@ module.exports = withPWA({
 ```
 
 ```js
-// title next.config.mjs
 import withPWAInit from "@ducanh2912/next-pwa";
 
 const withPWA = withPWAInit({
@@ -92,10 +90,9 @@ export default withPWA({
 
 `next-pwa` uses `workbox-webpack-plugin` under the hood. As such, its options are also available:
 
-<Tabs>
+<Tabs titles={["next.config.js", "next.config.mjs"]}>
 
 ```js
-// title next.config.js
 const withPWA = require("@ducanh2912/next-pwa").default({
   // Your other options,
   workboxOptions: {
@@ -109,7 +106,6 @@ module.exports = withPWA({
 ```
 
 ```js
-// title next.config.mjs
 import withPWAInit from "@ducanh2912/next-pwa";
 
 const withPWA = withPWAInit({
@@ -136,10 +132,9 @@ export default withPWA({
 `next-pwa` provides [a list of caching strategies out of the box](https://github.com/DuCanhGH/next-pwa/tree/master/packages/next-pwa/src/cache.ts).
 You can also write your own list like so:
 
-<Tabs>
+<Tabs titles={["next.config.js", "next.config.mjs"]}>
 
 ```js
-// title next.config.js
 const withPWA = require("@ducanh2912/next-pwa").default({
   // Your other options,
   extendDefaultRuntimeCaching: true,
@@ -156,7 +151,6 @@ module.exports = withPWA({
 ```
 
 ```js
-// title next.config.mjs
 import withPWAInit from "@ducanh2912/next-pwa";
 
 const withPWA = withPWAInit({

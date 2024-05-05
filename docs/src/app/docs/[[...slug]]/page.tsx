@@ -3,7 +3,7 @@ import { getMDXComponent } from "next-contentlayer/hooks";
 import { notFound } from "next/navigation";
 
 import { GITHUB_REPO_URL } from "@/shared/constants.js";
-import { mdxComponents, tocHeadingMdxComponents, tocMdxComponents } from "@/shared/mdxComponents.js";
+import { tocHeadingMdxComponents, tocMdxComponents } from "@/shared/mdxComponents.js";
 import type { GenerateMetadata, PageComponent } from "@/shared/types.js";
 import { clsx } from "@/utils/clsx.js";
 import { TocProvider } from "@/shared/TocContext";

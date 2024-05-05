@@ -26,10 +26,9 @@ When the user is offline, all pages that are not cached will fallback to `/_offl
 
 To also add a fallback for other resources, change your `next.config.js` like so:
 
-<Tabs>
+<Tabs titles={["next.config.js", "next.config.mjs"]}>
 
 ```js
-// title next.config.js
 const withPWA = require("@ducanh2912/next-pwa").default({
   // Your other options,
   fallbacks: {
@@ -54,7 +53,6 @@ module.exports = withPWA({
 ```
 
 ```js
-// title next.config.mjs
 import withPWAInit from "@ducanh2912/next-pwa";
 
 const withPWA = withPWAInit({

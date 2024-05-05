@@ -16,10 +16,9 @@ The plugin will check if the file exists and bundle the file to `dest/worker-*.j
 You can change the directory in which `next-pwa` looks for a custom worker implementation and change the directory in which `next-pwa` outputs the bundled
 worker:
 
-<Tabs>
+<Tabs titles={["next.config.js", "next.config.mjs"]}>
 
 ```js
-// title next.config.js
 const withPWA = require("@ducanh2912/next-pwa").default({
   customWorkerSrc: "service-worker",
   customWorkerDest: "somewhere-else", // defaults to `dest`
@@ -33,7 +32,6 @@ module.exports = withPWA({
 ```
 
 ```js
-// title next.config.mjs
 import withPWAInit from "@ducanh2912/next-pwa";
 
 const withPWA = withPWAInit({

@@ -15,20 +15,17 @@ type: Docs
   example](https://github.com/DuCanhGH/next-pwa/tree/master/examples/basic).
 </Callout>
 
-<Tabs>
+<Tabs titles={["npm", "yarn", "pnpm"]}>
 
 ```bash
-# title npm
 npm i @ducanh2912/next-pwa && npm i -D webpack
 ```
 
 ```bash
-# title yarn
 yarn add @ducanh2912/next-pwa && yarn add -D webpack
 ```
 
 ```bash
-# title pnpm
 pnpm add @ducanh2912/next-pwa && pnpm add -D webpack
 ```
 
@@ -40,10 +37,9 @@ pnpm add @ducanh2912/next-pwa && pnpm add -D webpack
 
 Update or create your `next.config.js` with
 
-<Tabs>
+<Tabs titles={["next.config.js", "next.config.mjs"]}>
 
 ```js
-// title next.config.js
 const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
 });
@@ -54,7 +50,6 @@ module.exports = withPWA({
 ```
 
 ```js
-// title next.config.mjs
 import withPWAInit from "@ducanh2912/next-pwa";
 
 const withPWA = withPWAInit({
@@ -71,10 +66,9 @@ export default withPWA({
 If your deployment platform requires your production image's size to not exceed a certain limit, you can also install `@ducanh2912/next-pwa` as one of your
 `devDependencies` and do this:
 
-<Tabs>
+<Tabs titles={["next.config.js", "next.config.mjs"]}>
 
 ```js
-// title next.config.js
 const {
   PHASE_DEVELOPMENT_SERVER,
   PHASE_PRODUCTION_BUILD,
@@ -97,7 +91,6 @@ module.exports = (phase) => {
 ```
 
 ```js
-// title next.config.mjs
 import {
   PHASE_DEVELOPMENT_SERVER,
   PHASE_PRODUCTION_BUILD,
@@ -138,8 +131,9 @@ automatically be served statically.
 
 Update `app/manifest.json` (App Router) or `public/manifest.json` (Pages Router) with the following content:
 
+<Tabs titles={["public/manifest.json"]}>
+
 ```json
-// title public/manifest.json
 {
   "name": "My awesome PWA app",
   "short_name": "PWA App",
@@ -169,14 +163,15 @@ Update `app/manifest.json` (App Router) or `public/manifest.json` (Pages Router)
 }
 ```
 
+</Tabs>
+
 ### Step 3: Add metadata to `<head />`
 
 Add the following to your `app/layout.tsx` or `pages/_app.tsx`:
 
-<Tabs>
+<Tabs titles={["app/layout.tsx", "pages/_app.tsx"]}>
 
 ```ts
-// title app/layout.tsx
 import type { Metadata, Viewport } from "next";
 
 const APP_NAME = "PWA App";
@@ -226,7 +221,6 @@ export const viewport: Viewport = {
 ```
 
 ```tsx
-// title pages/_app.tsx
 import type { AppProps } from "next/app";
 import Head from "next/head";
 

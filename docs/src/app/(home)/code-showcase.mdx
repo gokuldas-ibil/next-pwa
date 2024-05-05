@@ -1,7 +1,8 @@
 <CodeShowcase>
 
+<Tabs titles={["next.config.js"]}>
+
 ```js
-// title next.config.js
 const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
 });
@@ -10,6 +11,8 @@ module.exports = withPWA({
   // Your Next.js config
 });
 ```
+
+</Tabs>
 
 ## Easy to setup
 
@@ -20,8 +23,9 @@ liking.
 
 <CodeShowcase invert>
 
+<Tabs titles={["next.config.js"]}>
+
 ```js
-// title next.config.js
 // @ts-check
 const withPWA = require("@ducanh2912/next-pwa").default({
   // You will get hints as you type here. You can also hover over these options
@@ -35,6 +39,8 @@ module.exports = withPWA({
 });
 ```
 
+</Tabs>
+
 ## TypeScript support
 
 `next-pwa` is built with TypeScript. As you configure `next-pwa`, you will get type hints and detailed description of its options. If you directly wrap your
@@ -44,8 +50,9 @@ Next config with `withPWA`, it will automatically be typed with `NextConfig`!
 
 <CodeShowcase>
 
+<Tabs titles={["next.config.js"]}>
+
 ```js
-// title next.config.js
 const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
   // disable: process.env.NODE_ENV === "development",
@@ -67,6 +74,8 @@ module.exports = withPWA({
   // Your Next.js config
 });
 ```
+
+</Tabs>
 
 ## Configurable
 
