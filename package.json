@@ -12,21 +12,22 @@
     "next-pwa-e2e-test"
   ],
   "scripts": {
-    "build": "cross-env FORCE_COLOR=1 turbo run build --filter=./packages/*",
+    "build": "FORCE_COLOR=1 turbo run build --filter='./packages/*'",
     "code-check": "biome check --max-diagnostics=150 --log-kind=compact .",
     "code-check:apply": "pnpm code-check --apply",
     "deps": "node ncu.js",
-    "dev": "cross-env FORCE_COLOR=1 turbo run dev --parallel --filter=./packages/*",
-    "docs:build": "cross-env FORCE_COLOR=1 turbo run build --filter=./docs",
+    "dev": "FORCE_COLOR=1 turbo run dev --parallel --filter='./packages/*'",
+    "docs:build": "FORCE_COLOR=1 turbo run build --filter='./docs'",
     "nochange": "changeset --empty",
-    "examples:build": "cross-env FORCE_COLOR=1 turbo run build --filter=./examples/* --concurrency=50%",
-    "examples:dev": "cross-env FORCE_COLOR=1 turbo run dev --parallel --filter=./examples/*",
+    "examples:build": "FORCE_COLOR=1 turbo run build --filter='./examples/*' --concurrency=50%",
+    "examples:dev": "FORCE_COLOR=1 turbo run dev --parallel --filter='./examples/*'",
     "format": "biome format --max-diagnostics=100 --log-kind=compact .",
     "format:write": "pnpm format --write",
     "lint": "biome lint --max-diagnostics=100 --log-kind=compact .",
     "lint:fix": "pnpm lint --apply",
-    "test": "cross-env FORCE_COLOR=1 turbo run test --filter=./packages/*",
-    "typecheck": "cross-env FORCE_COLOR=1 turbo run typecheck"
+    "publish-packages": "pnpm typecheck && pnpm lint && pnpm build && changeset publish",
+    "test": "FORCE_COLOR=1 turbo run test --filter='./packages/*'",
+    "typecheck": "FORCE_COLOR=1 turbo run typecheck"
   },
   "devDependencies": {
     "@biomejs/biome": "1.7.2",
@@ -37,7 +38,6 @@
     "@types/shell-quote": "1.7.5",
     "@typescript-eslint/eslint-plugin": "7.8.0",
     "@typescript-eslint/parser": "7.8.0",
-    "cross-env": "7.0.3",
     "fast-glob": "3.3.2",
     "jest": "29.7.0",
     "npm-check-updates": "16.14.20",

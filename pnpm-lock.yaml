@@ -32,9 +32,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: 7.8.0
         version: 7.8.0(eslint@8.56.0)(typescript@5.5.0-dev.20240504)
-      cross-env:
-        specifier: 7.0.3
-        version: 7.0.3
       fast-glob:
         specifier: 3.3.2
         version: 3.3.2
