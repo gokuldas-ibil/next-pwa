@@ -48,10 +48,8 @@ const PostLayout: PageComponent = async ({ params }) => {
           </div>
         </div>
       </nav>
-      <article className="w-full min-w-0 md:py-8">
-        <div className="w-full min-w-0 max-w-6xl px-6 py-4 md:px-12 flex flex-col">
-          <Content components={tocHeadingMdxComponents} />
-        </div>
+      <article className="w-full min-w-0 p-6 md:px-12 md:pb-12 xl:pt-12 flex flex-col">
+        <Content components={tocHeadingMdxComponents} />
       </article>
     </TocProvider>
   );
