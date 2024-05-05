@@ -5,7 +5,9 @@ import { TabsContent, TabsList, TabsRoot } from "./components.js";
 
 const TitleBarComponent: BrightProps["TitleBarContent"] = (brightProps) => {
   const { subProps, title, Tab } = brightProps;
-  const titles = subProps?.length ? subProps.map((subProp) => subProp.title) : [title];
+  const titles = subProps?.length
+    ? subProps.map((subProp) => subProp.title)
+    : [title];
   const childProps = subProps?.length ? subProps : [brightProps];
   return (
     <TabsList titles={titles}>
@@ -17,9 +19,11 @@ const TitleBarComponent: BrightProps["TitleBarContent"] = (brightProps) => {
 };
 
 const Root: BrightProps["Root"] = (brightProps) => {
-  const { subProps, title } = brightProps;
+  const { subProps, title, ...rest } = brightProps;
 
-  const titles = subProps?.length ? subProps.map((subProp) => subProp.title) : [title];
+  const titles = subProps?.length
+    ? subProps.map((subProp) => subProp.title)
+    : [title];
 
   return (
     <TabsRoot
@@ -40,7 +44,7 @@ const Root: BrightProps["Root"] = (brightProps) => {
       `,
         }}
       />
-      {Code.Root && <Code.Root {...brightProps} />}
+      {Code.Root && <Code.Root subProps={subProps} title={title} {...rest} />}
     </TabsRoot>
   );
 };

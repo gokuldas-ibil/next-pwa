@@ -10,7 +10,7 @@ It is still recommended to use Next's built-in server instead.
 
 ## Usage
 
-[![Open in Gitpod and run](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://gitlab.com/serwist/next-pwa/)
+[![Open in Gitpod and run](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://github.com/DuCanhGH/next-pwa/)
 
 ```bash
 cd examples/custom-server
@@ -20,22 +20,22 @@ pnpm start
 
 or
 
-Execute [`degit`](https://github.com/Rich-Harris/degit) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), [pnpm](https://pnpm.io), or [bun](https://bun.sh) to bootstrap the example:
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), [pnpm](https://pnpm.io), or [bun](https://bun.sh) to bootstrap the example:
 
 ```bash
-npx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/custom-server custom-server-app
+npx create-next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/custom-server custom-server-app
 ```
 
 ```bash
-yarn degit git@gitlab.com:serwist/next-pwa/tree/master/examples/custom-server custom-server-app
+yarn create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/custom-server custom-server-app
 ```
 
 ```bash
-pnpx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/custom-server custom-server-app
+pnpm create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/custom-server custom-server-app
 ```
 
 ```bash
-bunx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/custom-server custom-server-app
+bun create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/custom-server custom-server-app
 ```
 
 ## Recommended `.gitignore`

@@ -1,4 +1,5 @@
 import type { MDXComponents } from "mdx/types";
+import Link from "next/link";
 import type { LegacyRef } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -11,6 +12,7 @@ import { LinkUnderline } from "@/components/Link/LinkUnderline.js";
 import { Tabs } from "@/components/Tabs/index.js";
 import { Text } from "@/components/Text.js";
 import { clsx } from "@/utils/clsx.js";
+import { TocHeading, TocLink } from "./TocContext";
 
 const TEXT_COLOR = "text-black dark:text-white";
 const TEXT_BORDER = "border-b border-neutral-200/70 dark:border-neutral-400/10";
@@ -27,7 +29,10 @@ export const mdxComponents: MDXComponents = {
       return (
         <a
           href={href}
-          className={twMerge("text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100", className)}
+          className={twMerge(
+            "text-xs font-medium text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100",
+            className,
+          )}
           ref={ref}
           {...rest}
         />
@@ -47,11 +52,37 @@ export const mdxComponents: MDXComponents = {
   h3: ({ ref, ...rest }) => <Heading type="title" ref={filterLegacyRef(ref)} {...rest} />,
   h4: ({ ref, ...rest }) => <Heading type="subtitle" ref={filterLegacyRef(ref)} {...rest} />,
   code: ({ ref, ...rest }) => <InlineCode ref={ref} {...rest} />,
-  pre: ({ ref, children, ...rest }) => (
-    <Code {...rest}>
-      <span>{children}</span>
-    </Code>
-  ),
+  pre: ({ ref, children, ...rest }) => {
+    return (
+      <Code {...rest}>
+        <span>{children}</span>
+      </Code>
+    );
+  },
   ul: ({ className, ...rest }) => <ul className={twMerge("list-disc first:mt-0 ltr:ml-6 rtl:mr-6", className)} {...rest} />,
   li: ({ className, ...rest }) => <li className={twMerge("my-4 break-words [&>*]:!my-0 [&>ul]:pl-1", TEXT_COLOR, className)} {...rest} />,
+};
+
+export const tocHeadingMdxComponents: MDXComponents = {
+  ...mdxComponents,
+  h1: ({ ref, ...rest }) => <TocHeading type="display" {...rest} />,
+  h2: ({ className, ref, ...rest }) => <TocHeading type="title-large" className={clsx(TEXT_BORDER, className)} {...rest} />,
+  h3: ({ ref, ...rest }) => <TocHeading type="title" {...rest} />,
+  h4: ({ ref, ...rest }) => <TocHeading type="subtitle" {...rest} />,
+};
+
+export const tocMdxComponents: MDXComponents = {
+  ...mdxComponents,
+  ul({ className, ...rest }) {
+    return <ul className="list mt-2" {...rest} />;
+  },
+  li({ ...rest }) {
+    return <li {...rest} />;
+  },
+  p({ children }) {
+    return <>{children}</>;
+  },
+  a({ ref, ...rest }) {
+    return <TocLink {...rest} />;
+  },
 };

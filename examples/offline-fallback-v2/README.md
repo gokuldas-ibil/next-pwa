@@ -4,7 +4,7 @@ This example demonstrates how to use `next-pwa` to implement fallback route, ima
 
 ## Usage
 
-[![Open in Gitpod and run](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://gitlab.com/serwist/next-pwa/)
+[![Open in Gitpod and run](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://github.com/DuCanhGH/next-pwa/)
 
 ```bash
 cd examples/offline-fallback-v2
@@ -17,19 +17,19 @@ or
 Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
 
 ```bash
-npx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/offline-fallback-v2 offline-fallback-app
+npx create-next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/offline-fallback-v2 offline-fallback-app
 ```
 
 ```bash
-yarn degit git@gitlab.com:serwist/next-pwa/tree/master/examples/offline-fallback-v2 offline-fallback-app
+yarn create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/offline-fallback-v2 offline-fallback-app
 ```
 
 ```bash
-pnpx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/offline-fallback-v2 offline-fallback-app
+pnpm create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/offline-fallback-v2 offline-fallback-app
 ```
 
 ```bash
-bunx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/offline-fallback-v2 offline-fallback-app
+bun create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/offline-fallback-v2 offline-fallback-app
 ```
 
 ## Recommended `.gitignore`

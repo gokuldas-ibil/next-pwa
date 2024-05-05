@@ -7,8 +7,8 @@
   "keywords": ["nextjs", "pwa", "workbox", "web", "service-worker"],
   "author": "ShadowWalker <w@weiw.io>, DuCanhGH",
   "license": "MIT",
-  "repository": "https://gitlab.com/serwist/next-pwa",
-  "bugs": "https://gitlab.com/serwist/next-pwa/issues",
+  "repository": "https://github.com/DuCanhGH/next-pwa",
+  "bugs": "https://github.com/DuCanhGH/next-pwa/issues",
   "homepage": "https://ducanh-next-pwa.vercel.app",
   "files": ["dist", "!dist/dts"],
   "source": "./src/index.ts",
@@ -51,26 +51,24 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "clean-webpack-plugin": "4.0.0",
     "fast-glob": "3.3.2",
     "semver": "7.6.0",
-    "terser-webpack-plugin": "5.3.10",
-    "workbox-build": "7.0.0",
-    "workbox-core": "7.0.0",
-    "workbox-webpack-plugin": "7.0.0",
-    "workbox-window": "7.0.0"
+    "workbox-build": "7.1.0",
+    "workbox-core": "7.1.0",
+    "workbox-webpack-plugin": "7.1.0",
+    "workbox-window": "7.1.0"
   },
   "devDependencies": {
     "@serwist/configs": "workspace:*",
-    "@types/node": "20.12.4",
+    "@types/node": "20.12.8",
     "@types/semver": "7.5.8",
     "chalk": "5.3.0",
-    "next": "14.2.0-canary.56",
+    "next": "14.3.0-canary.39",
     "rollup": "3.28.1",
-    "react": "19.0.0-canary-7a2609eed-20240403",
-    "react-dom": "19.0.0-canary-7a2609eed-20240403",
-    "type-fest": "4.15.0",
-    "typescript": "5.5.0-dev.20240404",
+    "react": "19.0.0-beta-1beb73de0f-20240503",
+    "react-dom": "19.0.0-beta-1beb73de0f-20240503",
+    "type-fest": "4.18.1",
+    "typescript": "5.5.0-dev.20240504",
     "webpack": "5.91.0"
   },
   "peerDependencies": {

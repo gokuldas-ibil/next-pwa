@@ -7,7 +7,7 @@ To develop locally:
 
 1. Clone the `next-pwa` repository:
    ```bash
-   git clone git@gitlab.com:serwist/next-pwa -- --depth=3000 --branch master --single-branch
+   git clone https://github.com/DuCanhGH/next-pwa -- --depth=3000 --branch master --single-branch
    ```
 1. Create a new branch:
    ```bash

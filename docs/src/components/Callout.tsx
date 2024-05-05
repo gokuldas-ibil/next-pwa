@@ -39,7 +39,7 @@ export const Callout = ({ className, variant = "info", children, ...rest }: Call
             "dark:bg-red-1000 bg-red-100": variant === "error",
             "bg-green-150 dark:bg-lime-1000": variant === "success",
             "bg-yellow-75 dark:bg-yellow-1000": variant === "warning",
-            "bg-gray-200 dark:bg-zinc-800": variant === "info",
+            "bg-neutral-150 dark:bg-zinc-800": variant === "info",
           },
         ),
         className,

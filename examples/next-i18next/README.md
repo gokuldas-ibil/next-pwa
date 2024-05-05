@@ -6,7 +6,7 @@ This example demonstrates how to use [`next-i18next`](https://github.com/i18next
 
 ## Usage
 
-[![Open in Gitpod and run](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://gitlab.com/serwist/next-pwa/)
+[![Open in Gitpod and run](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://github.com/DuCanhGH/next-pwa/)
 
 ```bash
 cd examples/next-i18next
@@ -19,19 +19,19 @@ or
 Execute [`degit`](https://github.com/Rich-Harris/degit) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), [pnpm](https://pnpm.io), or [bun](https://bun.sh) to bootstrap the example:
 
 ```bash
-npx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/next-i18next next-i18next-app
+npx create-next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/next-i18next next-i18next-app
 ```
 
 ```bash
-yarn degit git@gitlab.com:serwist/next-pwa/tree/master/examples/next-i18next next-i18next-app
+yarn create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/next-i18next next-i18next-app
 ```
 
 ```bash
-pnpx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/next-i18next next-i18next-app
+pnpm create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/next-i18next next-i18next-app
 ```
 
 ```bash
-bunx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/next-i18next next-i18next-app
+bun create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/next-i18next next-i18next-app
 ```
 
 Then try out following paths:

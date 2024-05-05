@@ -2,7 +2,7 @@
 
 Anyone can propose a change. However, adding new features often requires community discussions before proceeding with the implementation.
 
-Therefore, before opening a PR, you should [open a new issue](https://gitlab.com/serwist/next-pwa/issues/new) and collect feedback.
+Therefore, before opening a PR, you should [open a new issue](https://github.com/DuCanhGH/next-pwa/issues/new/choose) and collect feedback.
 
 ## Why use a discussion?
 

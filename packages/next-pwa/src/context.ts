@@ -17,12 +17,13 @@ const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
 export interface PluginOptionsComplete extends Required<PluginOptions> {
   disable: false;
+  swPath: string;
   workboxOptions: RequireFields<WorkboxOptions, "swDest" | "additionalManifestEntries" | "exclude" | "manifestTransforms">;
 }
 
 type PublicPath = NonNullable<NonNullable<WebpackConfig["output"]>["publicPath"]>;
 
-export type NextPwaContext = {
+export interface NextPwaContext {
   disabled: false;
   publicPath: PublicPath | undefined;
   nextConfig: NextConfigComplete;
@@ -32,15 +33,30 @@ export type NextPwaContext = {
   tsConfig: TsConfigJson | undefined;
   userOptions: PluginOptions;
   options: PluginOptionsComplete;
-};
+}
 
-export const parseOptions = (
+export const createContext = (
+  webpack: typeof Webpack,
   webpackContext: WebpackConfigContext,
-  publicPath: PublicPath | undefined,
-  nextConfig: NextConfigComplete,
+  userNextConfig: NextConfig,
+  webpackConfig: WebpackConfig,
+  userOptions: PluginOptions,
+): NextPwaContext | { disabled: true; webpackConfig: WebpackConfig } => {
+  // Do NOT use resolvedNextConfig here.
+  // Its `webpack` function is the resulting function of calling all plugins,
+  // including ours. Calling it will cause an infinitely recursive call.
+  if (typeof userNextConfig.webpack === "function") {
+    webpackConfig = userNextConfig.webpack(webpackConfig, webpackContext);
+  }
+
+  const resolvedNextConfig = {
+    ...webpackContext.config,
+    basePath: webpackContext.config.basePath || "/",
+  } satisfies NextConfigComplete;
+
   // For Workbox configurations:
   // https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-webpack-plugin.GenerateSW
-  {
+  let {
     disable = false,
     register = true,
     dest = "public",
@@ -53,7 +69,7 @@ export const parseOptions = (
     cacheOnFrontEndNav = false,
     aggressiveFrontEndNavCaching = false,
     reloadOnOnline = true,
-    scope = nextConfig.basePath,
+    scope = resolvedNextConfig.basePath,
     customWorkerSrc = "worker",
     customWorkerDest = dest,
     customWorkerPrefix = "worker",
@@ -64,9 +80,21 @@ export const parseOptions = (
       ...workbox
     } = {},
     extendDefaultRuntimeCaching = false,
-  }: PluginOptions,
-): PluginOptionsComplete | { disable: true } => {
-  if (disable) return { disable };
+  } = userOptions;
+
+  if (disable) {
+    !webpackContext.isServer && logger.info("PWA support is disabled.");
+    return {
+      disabled: true,
+      webpackConfig,
+    };
+  }
+
+  const publicPath = webpackConfig.output?.publicPath;
+
+  if (!webpackConfig.plugins) {
+    webpackConfig.plugins = [];
+  }
 
   const publicDir = path.resolve(webpackContext.dir, "public");
 
@@ -74,14 +102,8 @@ export const parseOptions = (
     const publicDirScan = fg.sync(
       [
         "**/*",
-        "!workbox-*.js",
-        "!workbox-*.js.map",
-        "!worker-*.js",
-        "!worker-*.js.map",
-        "!fallback-*.js",
-        "!fallback-*.js.map",
-        "!swe-worker-*.js",
-        "!swe-worker-*.js.map",
+        "!{workbox,fallback,swe-worker,worker}-*.js",
+        "!{workbox,fallback,swe-worker,worker}-*.js.map",
         `!${sw.replace(/^\/+/, "")}`,
         `!${sw.replace(/^\/+/, "")}.map`,
         ...publicExcludes,
@@ -91,7 +113,7 @@ export const parseOptions = (
       },
     );
     additionalManifestEntries = publicDirScan.map((f) => ({
-      url: path.posix.join(nextConfig.basePath, f),
+      url: path.posix.join(resolvedNextConfig.basePath, f),
       revision: getFileHash(path.resolve(publicDir, f)),
     }));
   }
@@ -99,7 +121,7 @@ export const parseOptions = (
   if (cacheStartUrl) {
     if (!dynamicStartUrl) {
       additionalManifestEntries.push({
-        url: nextConfig.basePath,
+        url: resolvedNextConfig.basePath,
         revision: webpackContext.buildId,
       });
     } else if (typeof dynamicStartUrlRedirect === "string" && dynamicStartUrlRedirect.length > 0) {
@@ -118,21 +140,21 @@ export const parseOptions = (
 
   if (fallbacks) {
     if (!fallbacks.document) {
-      fallbacks.document = getDefaultDocumentPage(webpackContext.dir, nextConfig.pageExtensions);
+      fallbacks.document = getDefaultDocumentPage(webpackContext.dir, resolvedNextConfig.pageExtensions);
     }
   }
 
-  return {
+  const resolvedOptions = {
     disable,
     register,
     dest: destDir,
-    sw: path.posix.join(nextConfig.basePath, sw),
+    sw: path.posix.join(resolvedNextConfig.basePath, sw),
+    swPath: sw,
     cacheStartUrl,
     dynamicStartUrl,
     dynamicStartUrlRedirect,
     publicExcludes,
     fallbacks,
-
     cacheOnFrontEndNav,
     aggressiveFrontEndNavCaching,
     reloadOnOnline,
@@ -171,7 +193,7 @@ export const parseOptions = (
             // to remove `/_next/${publicDirRelativeOutput}` from the URL, since that is not how
             // we resolve files in the public directory.
             if (m.url.startsWith(publicFilesPrefix)) {
-              m.url = path.posix.join(nextConfig.basePath, m.url.replace(publicFilesPrefix, ""));
+              m.url = path.posix.join(resolvedNextConfig.basePath, m.url.replace(publicFilesPrefix, ""));
             }
 
             if (m.revision === null) {
@@ -193,38 +215,9 @@ export const parseOptions = (
     },
     extendDefaultRuntimeCaching,
   } satisfies PluginOptionsComplete;
-};
 
-export const createContext = (
-  webpack: typeof Webpack,
-  options: WebpackConfigContext,
-  userNextConfig: NextConfig,
-  webpackConfig: WebpackConfig,
-  userOptions: PluginOptions,
-): NextPwaContext | { disabled: true; webpackConfig: WebpackConfig } => {
-  // Do NOT use resolvedNextConfig here.
-  // Its `webpack` function is the resulting function of calling all plugins,
-  // including ours. Calling it will cause an infinitely recursive call.
-  if (typeof userNextConfig.webpack === "function") {
-    webpackConfig = userNextConfig.webpack(webpackConfig, options);
-  }
-  const resolvedNextConfig = {
-    ...options.config,
-    basePath: options.config.basePath || "/",
-  } satisfies NextConfigComplete;
-  const publicPath = webpackConfig.output?.publicPath;
-  const resolvedOptions = parseOptions(options, publicPath, resolvedNextConfig, userOptions);
-  if (!webpackConfig.plugins) {
-    webpackConfig.plugins = [];
-  }
-  if (resolvedOptions.disable) {
-    !options.isServer && logger.info("PWA support is disabled.");
-    return {
-      disabled: true,
-      webpackConfig,
-    };
-  }
-  const tsConfig = loadTSConfig(options.dir, resolvedNextConfig.typescript.tsconfigPath);
+  const tsConfig = loadTSConfig(webpackContext.dir, resolvedNextConfig.typescript.tsconfigPath);
+
   webpackConfig.plugins.push(
     new webpack.DefinePlugin({
       __PWA_SW__: `'${resolvedOptions.sw}'`,
@@ -236,8 +229,11 @@ export const createContext = (
       __PWA_RELOAD_ON_ONLINE__: `${Boolean(resolvedOptions.reloadOnOnline)}`,
     }),
   );
+
   const swEntryJs = path.join(__dirname, "sw-entry.js");
+
   const entry = webpackConfig.entry as () => Promise<Record<string, string[] | string>>;
+
   webpackConfig.entry = async () => {
     const entries = await entry();
     if (entries["main.js"] && !entries["main.js"].includes(swEntryJs)) {
@@ -256,12 +252,13 @@ export const createContext = (
     }
     return entries;
   };
+
   return {
     disabled: false,
     publicPath,
     nextConfig: resolvedNextConfig,
     webpack,
-    webpackContext: options,
+    webpackContext: webpackContext,
     webpackConfig,
     tsConfig,
     userOptions,

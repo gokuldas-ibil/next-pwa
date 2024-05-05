@@ -6,7 +6,7 @@ This example also demonstrates how to [prompt the user to reload the page when a
 
 ## Usage
 
-[![Open in Gitpod and run](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://gitlab.com/serwist/next-pwa/)
+[![Open in Gitpod and run](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://github.com/DuCanhGH/next-pwa/)
 
 ```bash
 cd examples/lifecycle
@@ -19,19 +19,19 @@ or
 Execute [`degit`](https://github.com/Rich-Harris/degit) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), [pnpm](https://pnpm.io), or [bun](https://bun.sh) to bootstrap the example:
 
 ```bash
-npx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/lifecycle lifecycle-app
+npx create-next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/lifecycle lifecycle-app
 ```
 
 ```bash
-yarn degit git@gitlab.com:serwist/next-pwa/tree/master/examples/lifecycle lifecycle-app
+yarn create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/lifecycle lifecycle-app
 ```
 
 ```bash
-pnpx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/lifecycle lifecycle-app
+pnpm create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/lifecycle lifecycle-app
 ```
 
 ```bash
-bunx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/lifecycle lifecycle-app
+bun create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/lifecycle lifecycle-app
 ```
 
 ## Recommended `.gitignore`

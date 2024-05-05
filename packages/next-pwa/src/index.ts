@@ -1,6 +1,7 @@
 import path from "node:path";
+import fs from "node:fs";
 
-import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import fg from "fast-glob";
 import type { NextConfig } from "next";
 import type { Configuration } from "webpack";
 
@@ -29,6 +30,29 @@ const withPWAInit = (pluginOptions: PluginOptions = {}): ((nextConfig?: NextConf
       logger.event(`Compiling for ${options.isServer ? "server" : "client (static)"}...`);
 
       if (!options.isServer) {
+        const cleanUpList = [
+          ...fg.sync(
+            [
+              "{workbox,fallback,swe-worker,worker}-*.js",
+              "{workbox,fallback,swe-worker,worker}-*.js.map",
+              `${ctx.options.swPath.replace(/^\/+/, "")}`,
+              `${ctx.options.swPath.replace(/^\/+/, "")}.map`,
+            ],
+            {
+              absolute: true,
+              cwd: ctx.options.dest,
+            },
+          ),
+          ...fg.sync([`${ctx.options.customWorkerPrefix}-*.js`, `${ctx.options.customWorkerPrefix}-*.js.map`], {
+            absolute: true,
+            cwd: ctx.options.customWorkerDest,
+          }),
+        ];
+
+        for (const file of cleanUpList) {
+          fs.rmSync(file, { force: true });
+        }
+
         const sweWorker = buildSWEntryWorker(ctx);
 
         ctx.webpackConfig.plugins.push(
@@ -53,19 +77,6 @@ const withPWAInit = (pluginOptions: PluginOptions = {}): ((nextConfig?: NextConf
         logger.info(`Service worker: ${path.join(ctx.options.dest, ctx.options.sw)}`);
         logger.info(`  URL: ${ctx.options.sw}`);
         logger.info(`  Scope: ${ctx.options.scope}`);
-
-        ctx.webpackConfig.plugins.push(
-          new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: [
-              path.join(ctx.options.dest, "{workbox,fallback,swe-worker,worker}-*.js"),
-              path.join(ctx.options.dest, "{workbox,fallback,swe-worker,worker}-*.js.map"),
-              path.join(ctx.options.dest, ctx.options.sw),
-              path.join(ctx.options.dest, `${ctx.options.sw}.map`),
-              path.join(ctx.options.customWorkerDest, `${ctx.options.customWorkerPrefix}-*.js`),
-              path.join(ctx.options.customWorkerDest, `${ctx.options.customWorkerPrefix}-*.js.map`),
-            ],
-          }),
-        );
 
         ctx.webpackConfig.plugins.push(...resolveWorkboxPlugin(ctx));
       }

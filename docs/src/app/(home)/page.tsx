@@ -38,7 +38,7 @@ const Page = async () => {
         <h1
           className={clsx(
             "my-2 text-balance text-center text-5xl font-extrabold tracking-tight",
-            "bg-gradient-to-t from-gray-500 to-black bg-clip-text text-transparent dark:from-gray-400 dark:to-white",
+            "bg-gradient-to-t from-neutral-500 to-black bg-clip-text text-transparent dark:from-neutral-400 dark:to-white",
           )}
         >
           Make performant web apps with Next.js & PWA.
@@ -58,7 +58,7 @@ const Page = async () => {
         >
           Get started
         </Link>
-        <InlineCode>npx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/basic</InlineCode>
+        <InlineCode>npx create-next-app -e https://github.com/DuCanhGH/next-pwa/tree/master/examples/basic</InlineCode>
       </div>
       <div className="w-full p-4 md:p-24">
         <div className="grid w-full text-left lg:mb-0 lg:grid-cols-4 lg:gap-2">
@@ -67,7 +67,7 @@ const Page = async () => {
               key={`homepage-feature-lists-${idx}`}
               className={clsx(
                 "rounded-lg border border-transparent px-5 py-4 transition-colors",
-                "hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30",
+                "hover:border-neutral-300 hover:bg-neutral-100 hover:dark:border-neutral-800 hover:dark:bg-neutral-800/30",
               )}
             >
               <h2 className="mb-3 text-2xl font-semibold">

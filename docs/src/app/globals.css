@@ -11,7 +11,7 @@
     @apply m-0 flex h-full w-full p-0;
   }
   body {
-    @apply box-border bg-gray-100 transition-colors duration-100 dark:bg-neutral-900;
+    @apply box-border bg-neutral-50 transition-colors duration-100 dark:bg-neutral-950;
   }
 
   #__next,
@@ -30,6 +30,21 @@
   html[data-theme="light"] .visible-dark,
   html[data-theme="dark"] .visible-light {
     @apply !invisible !hidden;
+  }
+  .list {
+    @apply list-inside list-disc break-words pl-4 marker:text-black dark:marker:text-white;
+  }
+  .list > li {
+    @apply mb-2;
+  }
+  .list > li > .list {
+    @apply mt-2;
+  }
+  .text-toc {
+    @apply font-medium text-neutral-600 transition-colors duration-100 hover:text-black dark:text-neutral-400 dark:hover:text-white;
+  }
+  .text-toc.active {
+    @apply xl:text-primary-light xl:dark:text-primary-dark;
   }
 }
 

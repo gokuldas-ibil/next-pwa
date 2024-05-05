@@ -1,6 +1,6 @@
 ## Adding examples
 
-When you add an example to the [examples](https://gitlab.com/serwist/next-pwa/tree/master/examples) directory, please follow these guidelines:
+When you add an example to the [examples](https://github.com/DuCanhGH/next-pwa/tree/master/examples) directory, please follow these guidelines:
 
 - TypeScript should be leveraged for new examples.
 - If API routes aren't used in an example, they should be omitted.
@@ -25,7 +25,7 @@ This example demonstrates how to use `next-pwa` with DESCRIPTION.
 
 ## Usage
 
-[![Open in Gitpod and run](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://gitlab.com/serwist/next-pwa/)
+[![Open in Gitpod and run](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://github.com/DuCanhGH/next-pwa/)
 
 ```bash
 cd examples/DIRECTORY_NAME
@@ -35,22 +35,22 @@ pnpm start
 
 or
 
-Execute [`degit`](https://github.com/Rich-Harris/degit) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), [pnpm](https://pnpm.io), or [bun](https://bun.sh) to bootstrap the example:
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), [pnpm](https://pnpm.io), or [bun](https://bun.sh) to bootstrap the example:
 
 ```bash
-npx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/DIRECTORY_NAME DIRECTORY_NAME-app
+npx create-next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/DIRECTORY_NAME DIRECTORY_NAME-app
 ```
 
 ```bash
-yarn degit git@gitlab.com:serwist/next-pwa/tree/master/examples/DIRECTORY_NAME DIRECTORY_NAME-app
+yarn create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/DIRECTORY_NAME DIRECTORY_NAME-app
 ```
 
 ```bash
-pnpx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/DIRECTORY_NAME DIRECTORY_NAME-app
+pnpm create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/DIRECTORY_NAME DIRECTORY_NAME-app
 ```
 
 ```bash
-bunx degit git@gitlab.com:serwist/next-pwa/tree/master/examples/DIRECTORY_NAME DIRECTORY_NAME-app
+bun create next-app --example https://github.com/DuCanhGH/next-pwa/tree/master/examples/DIRECTORY_NAME DIRECTORY_NAME-app
 ```
 
 ## Recommended `.gitignore`

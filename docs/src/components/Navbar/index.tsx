@@ -2,9 +2,9 @@ import type { Route } from "next";
 import localFont from "next/font/local";
 import type { FC } from "react";
 
-import { GITLAB_REPO_URL } from "@/shared/constants.js";
+import { GITHUB_REPO_URL } from "@/shared/constants.js";
 
-import { GitLabLogo } from "../GitLabLogo.js";
+import { GitHubLogo } from "../GitHubLogo.js";
 import { Logo } from "../Logo.js";
 import { NavLink } from "./Link/index.js";
 import { NavMobileBurger } from "./client/Mobile/Burger.js";
@@ -24,7 +24,7 @@ export interface MainLinkProps {
 }
 
 export const Navbar: FC = () => (
-  <nav className="transition-colors_opa sticky top-0 z-[50] h-fit max-h-screen border-b-[0.25px] border-neutral-300 bg-white duration-100 dark:border-gray-700 dark:bg-black">
+  <nav className="transition-colors_opa sticky top-0 z-[50] h-fit max-h-screen border-b-[0.25px] border-neutral-300 bg-white duration-100 dark:border-neutral-800 dark:bg-black">
     <div className="mx-auto h-[var(--navbar-height)] max-w-7xl px-2 md:px-6 lg:px-8">
       <div className="relative flex h-16 items-center justify-between">
         <div className="absolute inset-y-0 left-0 flex items-center gap-[5px] md:hidden">
@@ -43,9 +43,9 @@ export const Navbar: FC = () => (
               </div>
             </div>
           </div>
-          <a href={GITLAB_REPO_URL} target="_blank" rel="noreferrer" className="nav-button">
-            <GitLabLogo width={24} height={24} className="min-w-6 min-h-6 max-w-6 max-h-6" aria-hidden />
-            <p className="sr-only">Our GitLab repo (opens in a new tab)</p>
+          <a href={GITHUB_REPO_URL} target="_blank" rel="noreferrer" className="nav-button">
+            <GitHubLogo width={24} height={24} className="min-w-6 min-h-6 max-w-6 max-h-6" aria-hidden />
+            <p className="sr-only">Our GitHub repo (opens in a new tab)</p>
           </a>
           <NavToggleSchemeButton />
         </div>

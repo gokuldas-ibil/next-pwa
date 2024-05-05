@@ -33,8 +33,8 @@ export default getRollupOptions({
   declFiles: [
     {
       input: {
-        index: "dist/dts/src/index.d.ts",
-        "sw-entry": "dist/dts/src/sw-entry.d.ts",
+        index: "dist/dts/index.d.ts",
+        "sw-entry": "dist/dts/sw-entry.d.ts",
       },
       output: [
         {
