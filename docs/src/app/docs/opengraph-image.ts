@@ -6,6 +6,7 @@ export const size = {
   height: 600,
 };
 export const contentType = "image/png";
+export const dynamic = "force-static";
 
 const opengraghImage = () => generateOGImage(size, "Docs");
 

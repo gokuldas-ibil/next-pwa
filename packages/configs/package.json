@@ -20,9 +20,9 @@
     "@rollup/plugin-alias": "5.1.0",
     "@rollup/plugin-json": "6.1.0",
     "@rollup/plugin-node-resolve": "15.2.3",
-    "@rollup/plugin-swc": "0.3.0",
+    "@rollup/plugin-swc": "0.3.1",
     "@rollup/plugin-typescript": "11.1.6",
-    "@swc/core": "1.4.17",
+    "@swc/core": "1.6.13",
     "rollup": "3.28.1",
     "rollup-plugin-dts": "6.0.2"
   }

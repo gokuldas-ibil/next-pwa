@@ -3,7 +3,7 @@
   "type": "module",
   "license": "MIT",
   "private": true,
-  "packageManager": "pnpm@9.0.6",
+  "packageManager": "pnpm@9.1.4",
   "workspaces": ["docs", "packages/**", "examples/**", "!**/.next", "next-pwa-e2e-test"],
   "scripts": {
     "build": "FORCE_COLOR=1 turbo run build --filter='./packages/*'",
@@ -24,21 +24,21 @@
     "typecheck": "FORCE_COLOR=1 turbo run typecheck"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.7.2",
+    "@biomejs/biome": "1.8.3",
     "@changesets/changelog-github": "0.5.0",
-    "@changesets/cli": "2.27.1",
+    "@changesets/cli": "2.27.7",
     "@ducanh2912/next-pwa": "workspace:*",
-    "@types/node": "20.12.8",
+    "@types/node": "20.14.10",
     "@types/shell-quote": "1.7.5",
-    "@typescript-eslint/eslint-plugin": "7.8.0",
-    "@typescript-eslint/parser": "7.8.0",
+    "@typescript-eslint/eslint-plugin": "7.16.1",
+    "@typescript-eslint/parser": "7.16.1",
     "fast-glob": "3.3.2",
     "jest": "29.7.0",
     "npm-check-updates": "16.14.20",
-    "rimraf": "5.0.5",
+    "rimraf": "6.0.1",
     "shell-quote": "1.8.1",
-    "tslib": "2.6.2",
-    "turbo": "1.13.3",
-    "typescript": "5.5.0-dev.20240504"
+    "tslib": "2.6.3",
+    "turbo": "2.0.6",
+    "typescript": "5.6.0-dev.20240716"
   }
 }

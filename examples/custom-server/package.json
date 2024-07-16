@@ -13,19 +13,19 @@
     "@ducanh2912/next-pwa": "latest",
     "@fastify/compress": "7.0.3",
     "cross-env": "7.0.3",
-    "fastify": "4.26.2",
-    "next": "14.2.3",
+    "fastify": "4.28.1",
+    "next": "14.2.5",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@swc/core": "1.4.17",
-    "@types/node": "20.12.8",
-    "@types/react": "18.3.1",
+    "@swc/core": "1.6.13",
+    "@types/node": "20.14.10",
+    "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
-    "nodemon": "3.1.0",
-    "rimraf": "5.0.5",
+    "nodemon": "3.1.4",
+    "rimraf": "6.0.1",
     "ts-node": "10.9.2",
-    "typescript": "5.4.5"
+    "typescript": "5.5.3"
   }
 }

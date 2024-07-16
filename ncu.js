@@ -36,8 +36,8 @@ for (const packageFile of packageJsonList) {
         if (dependencyName === "typescript") {
           return "@next";
         }
-        if (/^react(-dom)?$/.test(dependencyName) || /next$|(^@next\/.*$)/.test(dependencyName)) {
-          return "@canary";
+        if (/^react(-dom)?$/.test(dependencyName)) {
+          return "@rc";
         }
         return "latest";
       },
