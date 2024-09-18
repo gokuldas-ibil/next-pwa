@@ -1,6 +1,6 @@
 {
   "name": "@ducanh2912/next-pwa",
-  "version": "10.2.8",
+  "version": "10.2.9",
   "type": "module",
   "private": false,
   "description": "PWA for Next.js, powered by Workbox.",
