@@ -1,11 +1,11 @@
-# Zero-config [PWA](https://web.dev/learn/pwa/) plugin for [Next.js](https://nextjs.org/)
+# [PWA](https://web.dev/learn/pwa/) for [Next.js](https://nextjs.org/), powered by [Workbox](https://developer.chrome.com/docs/workbox).
 
 This plugin is powered by [Workbox](https://developer.chrome.com/docs/workbox/) and other good stuff.
 
 [![Build Size](https://img.shields.io/bundlephobia/minzip/@ducanh2912/next-pwa?label=Bundle%20size&style=flat&color=success)](https://bundlephobia.com/result?p=@ducanh2912/next-pwa)
 [![Version](https://img.shields.io/npm/v/@ducanh2912/next-pwa?style=flat&color=success)](https://www.npmjs.com/package/@ducanh2912/next-pwa)
 
-**NOTE:** If there's no specific reason to continue using `@ducanh2912/next-pwa`, consider migrating to [`@serwist/next`](https://github.com/serwist/serwist).
+**NOTE:** If there's no specific reason to continue using `@ducanh2912/next-pwa`, consider migrating to [`@serwist/next`](https://serwist.pages.dev/docs/next), a part of [Serwist](https://serwist.pages.dev) (a Workbox fork).
 
 ---
 
