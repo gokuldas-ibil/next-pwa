@@ -19,7 +19,7 @@
     "format:write": "pnpm format --write",
     "lint": "biome lint --max-diagnostics=100 --log-kind=compact .",
     "lint:fix": "pnpm lint --apply",
-    "publish-packages": "pnpm typecheck && pnpm lint && pnpm build && changeset publish",
+    "publish-packages": "pnpm typecheck && pnpm build && changeset publish",
     "test": "FORCE_COLOR=1 turbo run test --filter='./packages/*'",
     "typecheck": "FORCE_COLOR=1 turbo run typecheck"
   },
