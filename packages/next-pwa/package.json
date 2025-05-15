@@ -62,7 +62,6 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@gokuldas/next-pwa": "github:gokuldas-ibil/next-pwa#2.10.8",
     "fast-glob": "3.3.2",
     "semver": "7.6.3",
     "workbox-build": "7.1.1",
